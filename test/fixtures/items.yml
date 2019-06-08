@@ -2,8 +2,8 @@
 
 one:
   item_name: MyString
-  description: MyString
+  description: MyText
 
 two:
   item_name: MyString
-  description: MyString
+  description: MyText

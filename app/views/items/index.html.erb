@@ -1,0 +1,4 @@
+
+<% @items.each do |item| %>
+  <div><%= link_to item.item_name, item_path(item) %></div>
+<% end %>
