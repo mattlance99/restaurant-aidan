@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new
     @item[:item_name] = params[:item][:item_name]
-    @item[:description] = params[:item][:descripton]
+    @item[:description] = params[:item][:description]
     @item.save
     redirect_to item_path(@item)
   end
