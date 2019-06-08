@@ -18,4 +18,14 @@ class ItemsController < ApplicationController
     redirect_to item_path(@item)
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_name: params[:item_name], description: params[:description])
+    redirect_to item_path(@item)
+  end
+
 end
