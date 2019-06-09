@@ -10,22 +10,26 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def create
-    @item = Item.new
-    @item[:item_name] = params[:item][:item_name]
-    @item[:description] = params[:item][:description]
-    @item.save
-    redirect_to item_path(@item)
-  end
-
   def edit
     @item = Item.find(params[:id])
   end
 
+  def create
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to item_path(@item)
+  end
+
   def update
     @item = Item.find(params[:id])
-    @item.update(item_name: params[:item_name], description: params[:description])
+    @item.update(item_params)
     redirect_to item_path(@item)
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:item_name, :description)
   end
 
 end
